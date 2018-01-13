@@ -95,7 +95,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
     // done initializing, no need to predict or update
     is_initialized_ = true;
-    cout << "this is processed" << endl;
     return;
   }
 
@@ -112,6 +111,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    */
   float dt = (measurement_pack.timestamp_ - previous_timestamp_);	//dt - expressed in seconds
 	previous_timestamp_ = measurement_pack.timestamp_;
+  cout << "dt:" << dt << endl;
 
 	float dt_2 = dt * dt;
 	float dt_3 = dt_2 * dt;
