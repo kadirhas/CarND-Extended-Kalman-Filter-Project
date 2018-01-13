@@ -58,7 +58,17 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     * update the state by using Extended Kalman Filter equations
   */
   cout << "can i get here?" << endl;
-	VectorXd y = z - H_;
+  VectorXd hy(3);
+  float px = z(0);
+  float py = z(1);
+  float vx = z(2);
+  float vy = z(3);
+  float dist = sqrt(px*px+py*py);
+  hy(0) = dist;
+  hy(1) = atan(py/px);
+  hy(2) = (px*vx+py*vy)/dist;
+	VectorXd y = z - hy;
+  cout << "the bitwise array calculation error is avoided";
   while (y(1)>M_PI)
   {
     y(1) -= 2*M_PI;
