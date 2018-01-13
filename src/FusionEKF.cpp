@@ -64,8 +64,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     // first measurement
     cout << "EKF: " << endl;
     ekf_.x_ = VectorXd(4);
-    cout << "segmented here?" << endl;
     ekf_.x_ << 1, 1, 1, 1;
+    ekf_.P_ = MatrixXd(4,4);
     ekf_.P_ << 1, 0, 0, 0,
                0, 1, 0, 0,
                0, 0, 1000, 0,
