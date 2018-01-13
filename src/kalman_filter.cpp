@@ -67,8 +67,11 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   hy(0) = dist;
   hy(1) = atan(py/px);
   hy(2) = (px*vx+py*vy)/dist;
-	VectorXd y = z - hy;
-  cout << "the bitwise array calculation error is avoided";
+	cout << "size of z " << z.size() << endl;
+  cout << "size of hy " << hy.size() << endl;
+  VectorXd y = z - hy;
+  
+  cout << "the bitwise array calculation error is avoided"; // cant get this text on the screen
   while (y(1)>M_PI)
   {
     y(1) -= 2*M_PI;
