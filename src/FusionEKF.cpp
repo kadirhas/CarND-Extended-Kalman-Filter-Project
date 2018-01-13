@@ -111,6 +111,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 	//Modify the F matrix so that the time is integrated
 	ekf_.F_(0, 2) = dt;
 	ekf_.F_(1, 3) = dt;
+  
+  float noise_ax = 9;
+  float noise_ay = 9;
 
 	//set the process covariance matrix Q
 	ekf_.Q_ = MatrixXd(4, 4);
