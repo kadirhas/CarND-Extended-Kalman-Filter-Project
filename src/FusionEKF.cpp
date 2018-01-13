@@ -74,6 +74,7 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
                0, 1, 0, 1,
                0, 0, 1, 0,
                0, 0, 0, 1;
+    cout << "step by step" << endl;
 
     if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
       /**
