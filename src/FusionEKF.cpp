@@ -112,6 +112,8 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   float dt = (measurement_pack.timestamp_ - previous_timestamp_);	//dt - expressed in seconds
 	previous_timestamp_ = measurement_pack.timestamp_;
   cout << "dt:" << dt << endl;
+  cout << "previous time: " << previous_timestamp_ << endl;
+  cout << "measurement time: " << measurement_pack.timestamp_ << endl;
 
 	float dt_2 = dt * dt;
 	float dt_3 = dt_2 * dt;
