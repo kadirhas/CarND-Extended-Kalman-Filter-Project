@@ -54,7 +54,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   /*****************************************************************************
    *  Initialization
    ****************************************************************************/
-   cout << "am i here?" << endl;
   if (!is_initialized_) {
     /**
     TODO:

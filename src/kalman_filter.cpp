@@ -55,6 +55,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     TODO:
     * update the state by using Extended Kalman Filter equations
   */
+  cout << "can i get here?" << endl;
 	VectorXd y = z - H_;
   while (y(1)>M_PI)
   {
