@@ -59,7 +59,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   */
   cout << "can i get here?" << endl;
   VectorXd hy(3);
-  float px = x_(0)
+  float px = x_(0);
   float py = x_(1);
   float vx = x_(2);
   float vy = x_(3);
