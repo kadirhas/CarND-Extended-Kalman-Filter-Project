@@ -15,7 +15,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   VectorXd rmse(4);
   rmse << 0,0,0,0;
 
-  /*if(estimations.size() != ground_truth.size()
+  if(estimations.size() != ground_truth.size()
       || estimations.size() == 0){
     cout << "Invalid estimation or ground_truth data" << endl;
     return rmse;
@@ -37,7 +37,7 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
   //calculate the squared root
   // ... your code here
     rmse = rmse.array().sqrt();
-  //return the result*/
+  //return the result
   return rmse;
 }
 
