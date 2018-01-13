@@ -59,6 +59,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   */
   cout << "can i get here?" << endl;
   VectorXd hy(3);
+  cout << "size of z " << z.size() << endl;
   float px = z(0);
   float py = z(1);
   float vx = z(2);
@@ -67,7 +68,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   hy(0) = dist;
   hy(1) = atan(py/px);
   hy(2) = (px*vx+py*vy)/dist;
-	cout << "size of z " << z.size() << endl;
+	
   cout << "size of hy " << hy.size() << endl;
   VectorXd y = z - hy;
   
