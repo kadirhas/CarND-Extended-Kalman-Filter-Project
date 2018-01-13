@@ -50,6 +50,7 @@ void KalmanFilter::Update(const VectorXd &z) {
 	long x_size = x_.size();
 	MatrixXd I = MatrixXd::Identity(x_size, x_size);
 	P_ = (I - K * H_) * P_;
+  cout << "lidar is also used" << endl;
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {
@@ -57,7 +58,6 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
     TODO:
     * update the state by using Extended Kalman Filter equations
   */
-  cout << "can i get here?" << endl;
   VectorXd hy(3);
   float px = x_(0);
   float py = x_(1);
@@ -70,12 +70,11 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 
   VectorXd y = z - hy;
   
-  cout << "the bitwise array calculation error is avoided"; // cant get this text on the screen
   while (y(1)>M_PI)
   {
     y(1) -= 2*M_PI;
   }
-  while (y(1)<M_PI)
+  while (y(1)<(-1*M_PI))
   {
     y(1) += 2*M_PI;
   }  
